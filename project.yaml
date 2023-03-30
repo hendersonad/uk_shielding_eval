@@ -5,8 +5,11 @@ expectations:
 
 actions:
 
-  generate_study_population:
-    run: cohortextractor:latest generate_cohort --output-format csv.gz --study-definition study_definition
+  generate_dataset:
+    run: >
+      databuilder:v0 
+        generate-dataset analysis/databuilder_definition.py --output output/dataset_all.csv.gz
     outputs:
       highly_sensitive:
-        cohort: output/input.csv.gz
+        dataset_all: output/dataset_all.csv.gz
+  
